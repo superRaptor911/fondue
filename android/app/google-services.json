@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "295295194302",
+    "project_id": "fondue-7991b",
+    "storage_bucket": "fondue-7991b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295295194302:android:2fc9abf6afcc3616027aef",
+        "android_client_info": {
+          "package_name": "com.fondue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295295194302-6qjmp5pncfjk02mbmgkqho82137j60eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZrQ_qPce5XdNSwdd25LiRdDhe051fznU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295295194302-6qjmp5pncfjk02mbmgkqho82137j60eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
