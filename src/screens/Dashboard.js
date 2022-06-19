@@ -37,6 +37,8 @@ const Dashboard = ({navigation}) => {
                 imageUrl={item.image_url}
                 author={item.publisher}
                 key={item.recipe_id}
+                recipeId={item.recipe_id}
+                navigation={navigation}
               />
             ))}
           </ScrollView>

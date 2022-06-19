@@ -3,33 +3,35 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/program/reactnative/food/fondue
+cd ~/program/reactnative/fondue
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +17 App.js
+badd +45 App.js
 badd +52 src/screens/Login.js
-badd +49 src/screens/Signup.js
-badd +30 src/screens/Home.js
-badd +1 src/components/CardItem.js
-badd +7 src/screens/Dashboard.js
-badd +1 src/screens/Splash.js
-badd +36 src/api/api.js
+badd +135 src/screens/Signup.js
+badd +28 src/screens/Home.js
+badd +9 src/components/CardItem.js
+badd +9 src/screens/Dashboard.js
+badd +2 src/screens/Splash.js
+badd +56 src/api/api.js
 badd +31 src/api/request.js
 badd +140 src/components/SearchDropDown.js
+badd +56 src/screens/ViewRecipes.js
+badd +13 src/components/NavBar.js
 argglobal
 %argdel
-edit src/screens/Login.js
+edit src/screens/Splash.js
 argglobal
-balt src/screens/Signup.js
-let s:l = 52 - ((22 * winheight(0) + 22) / 45)
+balt App.js
+let s:l = 29 - ((28 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 52
-normal! 072|
+keepjumps 29
+normal! 019|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

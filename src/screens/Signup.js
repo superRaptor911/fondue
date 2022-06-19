@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0, 0, 0, 0.5)',
     borderStyle: 'solid',
     marginBottom: 20,
+    color: 'black',
   },
   topContainer: {
     marginHorizontal: 38,

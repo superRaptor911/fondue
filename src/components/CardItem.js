@@ -1,19 +1,33 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import {StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import heart from '../media/heart.png';
 
-const CardItem = ({title, imageUrl, author}) => {
+const CardItem = ({navigation, title, imageUrl, author, recipeId}) => {
   return (
-    <View style={styles.root}>
-      <Image style={styles.image} source={{uri: imageUrl}} />
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('ViewRecipes', {
+          recipeId: recipeId,
+        });
+      }}>
+      <View style={styles.root}>
+        <Image style={styles.image} source={{uri: imageUrl}} />
 
-      <View>
-        <Text style={styles.titleText}>{title}</Text>
-        <Text style={styles.authorText}>{author}</Text>
+        <View
+          style={{
+            flex: 1,
+            flexWrap: 'wrap',
+          }}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.titleText}>{title}</Text>
+          </View>
+          <Text style={styles.authorText}>{author}</Text>
+        </View>
+        <Image source={heart} style={styles.heart} />
       </View>
-      <Image source={heart} style={styles.heart} />
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -42,6 +56,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 22,
     color: '#522115',
+    flex: 1,
+    flexWrap: 'wrap',
+    flexShrink: 1,
   },
 
   authorText: {
@@ -51,6 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
     color: '#522115',
+    marginTop: 'auto',
   },
   heart: {
     height: 23,

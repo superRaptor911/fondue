@@ -8,6 +8,7 @@ import Signup from './src/screens/Signup';
 import Home from './src/screens/Home';
 import Dashboard from './src/screens/Dashboard';
 import Splash from './src/screens/Splash';
+import ViewRecipes from './src/screens/ViewRecipes';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +43,12 @@ const App = () => {
         <Stack.Screen
           name="Splash"
           component={Splash}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="ViewRecipes"
+          component={ViewRecipes}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
