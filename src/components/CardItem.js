@@ -1,15 +1,23 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Image, Text, View} from 'react-native';
-import {StyleSheet, TextInput, TouchableOpacity} from 'react-native';
-import heart from '../media/heart.png';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Icon} from '@rneui/themed';
+import {api_likeRecipe} from '../api/api';
 
-const CardItem = ({navigation, title, imageUrl, author, recipeId}) => {
+const CardItem = ({navigation, item, liked, onLikePressed}) => {
+  const {
+    title,
+    image_url: imageUrl,
+    publisher: author,
+    recipe_id: recipeId,
+  } = item;
+
   return (
     <TouchableOpacity
       onPress={() => {
         navigation.navigate('ViewRecipes', {
-          recipeId: recipeId,
+          item: item,
         });
       }}>
       <View style={styles.root}>
@@ -25,7 +33,16 @@ const CardItem = ({navigation, title, imageUrl, author, recipeId}) => {
           </View>
           <Text style={styles.authorText}>{author}</Text>
         </View>
-        <Image source={heart} style={styles.heart} />
+        {/* <Image source={heart} style={styles.heart} /> */}
+
+        <TouchableOpacity
+          onPress={() => {
+            api_likeRecipe(item, liked).then(
+              () => onLikePressed && onLikePressed(),
+            );
+          }}>
+          <Icon name={liked ? 'heart' : 'heart-outline'} type="ionicon" />
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );

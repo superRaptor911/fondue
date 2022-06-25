@@ -1299,10 +1299,10 @@
   resolved "https://registry.npmjs.org/@react-native-community/eslint-plugin/-/eslint-plugin-1.2.0.tgz"
   integrity sha512-o6aam+0Ug1xGK3ABYmBm0B1YuEKfM/5kaoZO0eHbZwSpw9UzDX4G5y4Nx/K20FHqUmJHkZmLvOUFYwN4N+HqKA==
 
-"@react-native-firebase/app@^14.10.0":
-  version "14.10.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-14.10.0.tgz#bd96dad03624cdf4849f529ceddd42098aed6e75"
-  integrity sha512-z9aeP1RqG2ZL+2eg3bg1vvmkU2z9YP/YZ5UVOgOto8dIjaFufSuZ3uyNlpB1p5wS0d0t7IkPrjsdrpTLGopMLA==
+"@react-native-firebase/app@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-15.0.0.tgz#1d47cbc57641a27dbc7abbd0590a2ee6edcc70b7"
+  integrity sha512-H4u50FaveRmKuzmKsbFUaq+9jFJrIcn2/auw441h24A0fcxAhKzlYQ6DK9IvoqCX/PKX1DZYrDo6UC/d4YjCGw==
   dependencies:
     "@expo/config-plugins" "^4.1.5"
     opencollective-postinstall "^2.0.1"
@@ -1312,6 +1312,11 @@
   version "14.10.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-14.10.0.tgz#c6c78b6fdf37c28b03f7a7af1961a70591b97125"
   integrity sha512-gGF7D68VJooILAWBRjJMEXQboSfgW94n5Kak8zICBWTjCu4Iuj0h7AGk6d0jfqfiZsvf1MyJPnwlz1R6v0dxlg==
+
+"@react-native-firebase/firestore@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-15.0.0.tgz#dad75ce5a6a213344e20868145eaf6bef6d0f965"
+  integrity sha512-HLo75TpUO7DyyBFqslzlTD15doGI0xAW8AY4mC0HbmI2vo7Q9fykQxXVb765lm1IDVqy5WD4NpzXEJ2hoo3M2g==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
@@ -5855,6 +5860,11 @@ react-native-size-matters@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.4.0.tgz"
   integrity sha512-8/C0htHrFWeUm9N8JegmadovUfgTWkGBkDPZ1N3YkXtDWb+98Ya2gThiKcu445r8c7YhcrBfnHz/mYsXIusaOQ==
+
+react-native-uuid@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-uuid/-/react-native-uuid-2.0.1.tgz#ed4e2dfb1683eddb66967eb5dca140dfe1abddb9"
+  integrity sha512-cptnoIbL53GTCrWlb/+jrDC6tvb7ypIyzbXNJcpR3Vab0mkeaaVd5qnB3f0whXYzS+SMoSQLcUUB0gEWqkPC0g==
 
 react-native-vector-icons@^9.1.0:
   version "9.1.0"

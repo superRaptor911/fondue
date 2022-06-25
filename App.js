@@ -9,6 +9,9 @@ import Home from './src/screens/Home';
 import Dashboard from './src/screens/Dashboard';
 import Splash from './src/screens/Splash';
 import ViewRecipes from './src/screens/ViewRecipes';
+import MyRecipies from './src/screens/MyRecipies';
+import CreateRecipe from './src/screens/CreateRecipe';
+import LikedRecipes from './src/screens/LikedRecipes';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +52,24 @@ const App = () => {
         <Stack.Screen
           name="ViewRecipes"
           component={ViewRecipes}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="MyRecipies"
+          component={MyRecipies}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="CreateRecipe"
+          component={CreateRecipe}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="LikedRecipes"
+          component={LikedRecipes}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

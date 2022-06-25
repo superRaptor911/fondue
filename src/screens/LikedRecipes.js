@@ -1,42 +1,36 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {Button, ScrollView, Text, View} from 'react-native';
 import CardItem from '../components/CardItem';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import SearchDropDown from '../components/SearchDropDown';
 import NavBar from '../components/NavBar';
 import {api_forkifySearch, api_getLikedRecipies} from '../api/api';
 import {LinearProgress} from '@rneui/themed';
 
-const Dashboard = ({navigation}) => {
-  const [search, setSearch] = useState('ham');
+const LikedRecipes = ({navigation}) => {
   const [recipies, setRecipies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [likedRecipies, setLikedRecipies] = useState({});
 
   useEffect(() => {
     setLoading(true);
-    api_forkifySearch(search).then(result => {
-      setRecipies(result.recipes);
+    loadLikedRecipes().then(() => {
       setLoading(false);
     });
-  }, [search]);
-
-  useEffect(() => {
-    updateLikedRecipeList();
   }, []);
 
-  const updateLikedRecipeList = async () => {
+  const loadLikedRecipes = async () => {
     const liked = await api_getLikedRecipies();
-    liked && setLikedRecipies(liked);
+    if (liked) {
+      const keys = Object.keys(liked);
+      const list = keys.map(key => liked[key]).filter(item => Boolean(item));
+      setRecipies(list);
+    }
   };
-
   return (
     <View style={styles.root}>
       <View style={[styles.root, {paddingHorizontal: 23, paddingTop: 38}]}>
-        <Text style={styles.titleText}>Hello buddy!</Text>
-        <Text style={styles.subTitle}>What do you want to cook today?</Text>
-        <SearchDropDown setSelectedItem={setSearch} />
+        <Text style={styles.titleText}>Liked Recipes</Text>
         {loading ? (
           <LinearProgress style={{marginVertical: 10}} />
         ) : (
@@ -46,14 +40,14 @@ const Dashboard = ({navigation}) => {
                 item={item}
                 key={item.recipe_id}
                 navigation={navigation}
-                liked={likedRecipies[item.recipe_id]}
-                onLikePressed={updateLikedRecipeList}
+                liked={true}
+                onLikePressed={loadLikedRecipes}
               />
             ))}
           </ScrollView>
         )}
       </View>
-      <NavBar navigation={navigation} page="home" />
+      <NavBar navigation={navigation} page="LikedRecipes" />
     </View>
   );
 };
@@ -81,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard;
+export default LikedRecipes;

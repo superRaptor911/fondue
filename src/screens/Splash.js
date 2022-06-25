@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
-import {StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 const Splash = ({navigation}) => {

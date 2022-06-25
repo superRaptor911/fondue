@@ -9,29 +9,32 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +45 App.js
+badd +72 App.js
 badd +52 src/screens/Login.js
 badd +135 src/screens/Signup.js
 badd +28 src/screens/Home.js
-badd +9 src/components/CardItem.js
-badd +9 src/screens/Dashboard.js
-badd +2 src/screens/Splash.js
-badd +56 src/api/api.js
-badd +31 src/api/request.js
+badd +20 src/components/CardItem.js
+badd +16 src/screens/Dashboard.js
+badd +57 src/screens/Splash.js
+badd +140 src/api/api.js
+badd +1 src/api/request.js
 badd +140 src/components/SearchDropDown.js
-badd +56 src/screens/ViewRecipes.js
-badd +13 src/components/NavBar.js
+badd +65 src/screens/ViewRecipes.js
+badd +15 src/components/NavBar.js
+badd +25 src/screens/CreateRecipe.js
+badd +22 src/screens/MyRecipies.js
+badd +25 src/screens/LikedRecipes.js
 argglobal
 %argdel
-edit src/screens/Splash.js
+edit src/screens/ViewRecipes.js
 argglobal
-balt App.js
-let s:l = 29 - ((28 * winheight(0) + 21) / 43)
+balt src/api/api.js
+let s:l = 68 - ((35 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 29
-normal! 019|
+keepjumps 68
+normal! 011|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -45,7 +48,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

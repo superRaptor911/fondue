@@ -14,12 +14,16 @@ import {api_forkifyGet} from '../api/api';
 import NavBar from '../components/NavBar';
 
 const ViewRecipes = ({route, navigation}) => {
-  const {recipeId} = route.params;
+  const {item} = route.params;
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
-    api_forkifyGet(recipeId).then(data => setRecipe(data.recipe));
-  }, [recipeId]);
+    if (!item.isCustom) {
+      api_forkifyGet(item.recipe_id).then(data => setRecipe(data.recipe));
+    } else {
+      setRecipe(item);
+    }
+  }, [item]);
 
   if (!recipe) {
     return (
@@ -46,14 +50,18 @@ const ViewRecipes = ({route, navigation}) => {
 
       <ScrollView style={styles.contentContainer}>
         <Text style={styles.headingText2}>Ingredients</Text>
-        {recipe.ingredients.map((item, id) => (
+        {recipe.ingredients.map((itm, id) => (
           <Text key={id} style={styles.headingSubText}>
-            {'*  ' + item}
+            {'*  ' + itm}
           </Text>
         ))}
         <Text style={styles.headingText2}>Preparation Method</Text>
         <View style={{marginRight: 24, marginBottom: 30}}>
-          <Button title="View Recipe" onPress={handlePress} />
+          {item.isCustom ? (
+            <Text style={styles.headingSubText}>{item.method}</Text>
+          ) : (
+            <Button title="View Recipe" onPress={handlePress} />
+          )}
         </View>
       </ScrollView>
       <NavBar navigation={navigation} page="" />

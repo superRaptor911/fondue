@@ -10,13 +10,19 @@ const NavBar = ({navigation, page}) => {
         <Icon name={page === 'home' ? 'home' : 'home-outline'} type="ionicon" />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+      <TouchableOpacity onPress={() => navigation.navigate('LikedRecipes')}>
         <Icon
-          name={page === 'liked' ? 'heart' : 'heart-outline'}
+          name={page === 'LikedRecipes' ? 'heart' : 'heart-outline'}
           type="ionicon"
         />
       </TouchableOpacity>
-      <Icon name="book-outline" type="ionicon" />
+
+      <TouchableOpacity onPress={() => navigation.navigate('MyRecipies')}>
+        <Icon
+          name={page === 'MyRecipies' ? 'book' : 'book-outline'}
+          type="ionicon"
+        />
+      </TouchableOpacity>
       <Icon name="person-outline" type="ionicon" />
     </View>
   );
