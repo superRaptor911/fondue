@@ -5,7 +5,7 @@ import CardItem from '../components/CardItem';
 import {StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import SearchDropDown from '../components/SearchDropDown';
 import NavBar from '../components/NavBar';
-import {api_forkifySearch} from '../api/api';
+import {api_forkifySearch, api_getMyRecipes} from '../api/api';
 import {LinearProgress} from '@rneui/themed';
 
 const MyRecipies = ({navigation}) => {
@@ -15,8 +15,8 @@ const MyRecipies = ({navigation}) => {
 
   useEffect(() => {
     setLoading(true);
-    api_forkifySearch(search).then(result => {
-      setRecipies([result.recipes[0]]);
+    api_getMyRecipes().then(result => {
+      setRecipies(result);
       setLoading(false);
     });
   }, [search]);

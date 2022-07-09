@@ -23,7 +23,13 @@ const NavBar = ({navigation, page}) => {
           type="ionicon"
         />
       </TouchableOpacity>
-      <Icon name="person-outline" type="ionicon" />
+
+      <TouchableOpacity onPress={() => navigation.navigate('MyAccount')}>
+        <Icon
+          name={page === 'MyAccount' ? 'person' : 'person-outline'}
+          type="ionicon"
+        />
+      </TouchableOpacity>
     </View>
   );
 };

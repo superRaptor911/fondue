@@ -138,3 +138,26 @@ export async function api_createRecipe(
     throw error;
   }
 }
+
+export async function api_getMyRecipes() {
+  try {
+    const email = auth().currentUser.email;
+    const collection = await firestore().collection('recipes').get();
+    let result = [];
+
+    collection.forEach(doc => {
+      const data = doc.data();
+      const keys = Object.keys(data);
+      const list = keys
+        .map(key => data[key])
+        .filter(itm => itm.publisher === email);
+      result = [...result, ...list];
+    });
+
+    return result;
+  } catch (error) {
+    /* handle error */
+    console.error(error);
+    throw error;
+  }
+}

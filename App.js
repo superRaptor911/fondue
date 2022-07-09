@@ -12,6 +12,7 @@ import ViewRecipes from './src/screens/ViewRecipes';
 import MyRecipies from './src/screens/MyRecipies';
 import CreateRecipe from './src/screens/CreateRecipe';
 import LikedRecipes from './src/screens/LikedRecipes';
+import MyAccount from './src/screens/Account';
 
 const Stack = createNativeStackNavigator();
 
@@ -70,6 +71,12 @@ const App = () => {
         <Stack.Screen
           name="LikedRecipes"
           component={LikedRecipes}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="MyAccount"
+          component={MyAccount}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
